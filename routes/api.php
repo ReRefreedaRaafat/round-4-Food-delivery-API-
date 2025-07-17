@@ -13,6 +13,7 @@ use App\Http\Controllers\API\PaymentController;
 use App\Http\Controllers\API\ReviewController;
 use App\Http\Controllers\Api\Chef\OrderController as ChefOrderController;
 use App\Http\Controllers\Api\Chef\StatisticsController;
+use App\Http\Controllers\Customer\FavoriteController;
 
 
 
@@ -107,3 +108,10 @@ Route::get('/client/meals_filter/', [DishesController::class, 'filter']);
 
 // البحث عن طبق أو مطعم معين
 Route::get('/client/meals_search/', [DishesController::class, 'search']);
+
+
+// إضافة طبق للمفضلة
+
+Route::get('/client/add_favorite/{dish_id}/{customer_id}', [FavoriteController::class, 'add_favourite']);
+Route::get('/client/show_fav', [FavoriteController::class, 'show_fav']);
+Route::get('/client/remove_fav/{dish_id}/{customer_id}', [FavoriteController::class, 'remove_fav']);
